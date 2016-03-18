@@ -216,6 +216,7 @@ function create_config( )
     "stats",
     "anti_spam",
     "owners",
+    "plugins",
     "arabic_lock",
     "set",
     "get",
@@ -229,8 +230,7 @@ function create_config( )
     sudo_users = {137791771},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v2 - Open Source
-An advance Administration bot based on yagop/telegram-bot 
+    about_text = [[kingbot v2 - Open Source 
 ]],
     help_text_realm = [[
 Realm Commands:
