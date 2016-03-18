@@ -219,7 +219,6 @@ function create_config( )
     "inpm",
     "banhammer",
     "stats",
-    "calc",
     "anti_spam",
     "owners",
     "plugins",
@@ -229,16 +228,14 @@ function create_config( )
     "broadcast",
     "invite",
     "all",
-    "time",
     "leave_ban",
 	"supergroup",
 	"whitelist",
 	"msg_checks"
-        "welcome",
     },
     sudo_users = {137791771},--Sudo users
     moderation = {data = 'data/moderation.json'},
-    about_text = [[kingbot v4
+    about_text = [[🌟kingbot🌟
 ]],
     help_text_realm = [[
 Realm Commands:
