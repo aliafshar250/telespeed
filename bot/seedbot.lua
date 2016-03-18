@@ -219,6 +219,7 @@ function create_config( )
     "inpm",
     "banhammer",
     "stats",
+    "calc",
     "anti_spam",
     "owners",
     "plugins",
@@ -233,6 +234,7 @@ function create_config( )
 	"supergroup",
 	"whitelist",
 	"msg_checks"
+        "welcome",
     },
     sudo_users = {137791771},--Sudo users
     moderation = {data = 'data/moderation.json'},
