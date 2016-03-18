@@ -228,6 +228,7 @@ function create_config( )
     "broadcast",
     "invite",
     "all",
+    "time",
     "leave_ban",
 	"supergroup",
 	"whitelist",
