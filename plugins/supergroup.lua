@@ -1050,7 +1050,7 @@ end
 --Run function
 local function run(msg, matches)
 	if msg.to.type == 'chat' then
-		if matches[1] == 'تبدیل سوپر' then 
+		if matches[1] == 'tosuper' then 
 			if not is_admin1(msg) then
 				return
 			end
@@ -1191,7 +1191,7 @@ local function run(msg, matches)
 			end
 		end
 
-		if matches[1] == 'ای دی' then
+		if matches[1] == 'اید' then
 			if type(msg.reply_id) ~= "nil" and is_momod(msg) and not matches[2] then
 				local cbreply_extra = {
 					get_cmd = 'id',
@@ -1269,7 +1269,7 @@ local function run(msg, matches)
 			return "Group link:\n"..group_link
 		end
 
-		if matches[1] == "invite" and is_sudo(msg) then
+		if matches[1] == "دعوت" and is_sudo(msg) then
 			local cbres_extra = {
 				channel = get_receiver(msg),
 				get_cmd = "invite"
@@ -1291,7 +1291,7 @@ local function run(msg, matches)
 			resolve_username(username,  callbackres, cbres_extra)
 		end
 
-		--[[if matches[1] == 'kick' and is_momod(msg) then
+		--[[if matches[1] == 'محروم' and is_momod(msg) then
 			local receiver = channel..matches[3]
 			local user = "user#id"..matches[2]
 			chaannel_kick(receiver, user, ok_cb, false)
@@ -1898,7 +1898,7 @@ local function run(msg, matches)
 			return get_rules(msg, data)
 		end
 
-		if matches[1] == 'help' and not is_owner(msg) then
+		if matches[1] == 'راهنما' and not is_owner(msg) then
 			text = "Message /superhelp to @Teleseed in private for SuperGroup help"
 			reply_msg(msg.id, text, ok_cb, false)
 		elseif matches[1] == 'help' and is_owner(msg) then
@@ -1967,7 +1967,7 @@ end
 return {
   patterns = {
 	"^(نصب)$",
-	"^([صلب)$",
+	"^(صلب)$",
 	"^([Mm]ove) (.*)$",
 	"^([اطلاعات)$",
 	"^(ادمین ها)$",
@@ -1978,11 +1978,11 @@ return {
 	"^(حذف)$",
     "^(بلاک) (.*)",
 	"^(بلاک)",
-	"^(تبدیل سوپر)$",
-	"^(ای دی)$",
-	"^(ای دی) (.*)$",
+	"^(tosuper)$",
+	"^(اید)$",
+	"^(اید) (.*)$",
 	"^(خروج)$",
-	"^(kick) (.*)$",
+	"^(محروم) (.*)$",
 	"^(تغیر لینک)$",
 	"^(ذخیره لینک)$",
 	"^(لینک)$",
@@ -2014,7 +2014,7 @@ return {
 	"^(قوانین)$",
 	"^(حساسیت) (%d+)$",
 	"^پاک کردن) (.*)$",
-	"^([Hh]elp)$",
+	"^(راهنما)$",
 	"^(لیست بسته)$",
 	"^(لیست بسته)$",
     "(mp) (.*)",
