@@ -521,7 +521,7 @@ function show_supergroup_settingsmod(msg, target)
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "تنظیمات ابر گروه:\nقفل لینک : "..settings.lock_link.."\n🌟قفل حساسیت : "..settings.flood.."\n🌟حساسیت به اسپم : "..NUM_MSG_MAX.."\nقفل اسپم : "..settings.lock_spam.."\n🌟قفل عربی: "..settings.lock_arabic.."\n🌟قفل ورود : "..settings.lock_member.."\n🌟قفل RTL : "..settings.lock_rtl.."\n🌟قفل استیکر : "..settings.lock_sticker.."\n🌟عمومی: "..settings.public.."\n🌟موکد تنظیمات : "..settings.strict
+  local text = "تنظیمات سوپر گروه :\n🌟\nقفل لینک : "..settings.lock_link.."\n🌟\nقفل حساسیت : "..settings.flood.."\n🌟\nحساسیت به اسپم : "..NUM_MSG_MAX.."\n🌟\nقفل اسپم : "..settings.lock_spam.."\n🌟\nقفل عربی: "..settings.lock_arabic.."\n🌟\nقفل ورود : "..settings.lock_member.."\n🌟\nقفل RTL : "..settings.lock_rtl.."\n🌟\nقفل استیکر : "..settings.lock_sticker.."\n🌟\nعمومی: "..settings.public.."\n🌟\nموکد تنظیمات : "..settings.strict
   return text
 end
 
