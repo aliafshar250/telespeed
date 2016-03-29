@@ -449,7 +449,7 @@ will return group ban list
 *Only owner can use res,setowner,promote,demote and log commands
 
 ]],
-	help_text_super =[[
+      help_text_super =[[
 SuperGroup Commands:
 
 !info
@@ -577,8 +577,6 @@ SuperGroup Commands:
 فقط ناظم ها و خریدار ها میتوانند دستورات  بالا را اجرا کنند🔴
 *Only owner can use res, setowner, promote, demote, and log commands
 فقط خریدار گروه میتواند دستورات بالا رو اجرا کند🔵
-
-
 ]],
   }
   serialize_to_file(config, './data/config.lua')
