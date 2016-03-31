@@ -9,7 +9,7 @@ end
 return {
   description = "text to voice",
   usage = {
-    "!voice [text]"
+    "(صدا) [text]"
   },
   patterns = {
     "^(صدا) (.+)$"
