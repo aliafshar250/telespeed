@@ -450,7 +450,6 @@ will return group ban list
 
 ]],
       help_text_super =[[
- 
 🌟لیست دستورات سوپر گروه🌟:
 
 💗(اینفو)💗
@@ -577,7 +576,6 @@ will return group ban list
 فقط خریدار گروه میتواند دستورات بالا رو اجرا کند
 💗💗💗💗💗💗💗💗💗💗💗💗
 ➿➿➿➿➿➿➿➿➿➿➿➿
-
   }},
   serialize_to_file(config, './data/config.lua')
   print('saved config into ./data/config.lua')
