@@ -59,12 +59,12 @@ end
 
 return {
     usage = {
-        "(نصب جک) [msg]",
-        "جک",
+        "addjock [msg]",
+        "jock",
     },
     patterns = {
-        "^(نصب جک) (.+)$",
-        "^(جک)$",
+        "^[Aa]ddjock (.+)$",
+        "^[Jj]ock$",
     },
     run = run
 }
