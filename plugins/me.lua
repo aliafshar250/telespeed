@@ -6,13 +6,13 @@ local function run(msg, matches)
     send_document(get_receiver(msg), "./data/me/sudo.webp", ok_cb, false)
       return "Your Rank is : SuDo"
     elseif is_admin(msg) then
-    send_document(get_receiver(msg), "./data/me/admin.webp", ok_cb, false)
+    send_document(get_receiver(msg), "./data/me/admins.webp", ok_cb, false)
       return "Your Rank is : Admin"
     elseif is_owner(msg) then
     send_document(get_receiver(msg), "./data/me/owner.webp", ok_cb, false)
       return "Your Rank is : Owner"
     elseif is_momod(msg) then
-    send_document(get_receiver(msg), "./data/me/moderetion.webp", ok_cb, false)
+    send_document(get_receiver(msg), "./data/me/mod.webp", ok_cb, false)
       return "Your Rank is : Mod"
     else
       send_document(get_receiver(msg), "./data/me/member.webp", ok_cb, false)
