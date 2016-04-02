@@ -11,7 +11,7 @@ end
 
 return {
   patterns = {
-    "^(شات) (.+)$"
+    "^web (.+)$"
   },
   run = run
 }
