@@ -1,4 +1,4 @@
-#addplug do
+do
 
 local BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 
@@ -50,10 +50,10 @@ return {
   description = "weather in that city (Tehran is default)", 
   usage = "weather (city)",
   patterns = {
-    "^(اب و هوا)$",
-    "^(اب و هوا) (.*)$" 
+    "^[Ww]eather$",
+    "^[Ww]eather (.*)$"
   }, 
   run = run 
 }
 
-end weather
+end
