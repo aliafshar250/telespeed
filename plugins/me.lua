@@ -4,19 +4,19 @@ local function run(msg, matches)
   if matches[1]:lower() == 'me' or "wai" then
     if is_sudo(msg) then
     send_document(get_receiver(msg), "./data/me/sudo.webp", ok_cb, false)
-      return "Your Rank is : SuDo"
+      return "Your : SuDo"
     elseif is_admin(msg) then
     send_document(get_receiver(msg), "./data/me/admins.webp", ok_cb, false)
-      return "Your Rank is : Admin"
+      return "Your : Admins"
     elseif is_owner(msg) then
     send_document(get_receiver(msg), "./data/me/owner.webp", ok_cb, false)
-      return "Your Rank is : Owner"
+      return "Your : Owner"
     elseif is_momod(msg) then
     send_document(get_receiver(msg), "./data/me/mod.webp", ok_cb, false)
-      return "Your Rank is : Mod"
+      return "Your : Mods"
     else
       send_document(get_receiver(msg), "./data/me/member.webp", ok_cb, false)
-      return "Your Rank is : member"
+      return "You : member"
   end
 end
 end
