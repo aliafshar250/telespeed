@@ -587,12 +587,7 @@ will return group ban list
 
 🌟!log🌟
 برگرداندن تاریخچه گروه در یک فایل متنی
-〰〰〰〰〰〰〰〰〰〰〰
- کانال ربات:TEAM CORE BOT
-🔰TEAM CORE ROBOT🔰
-https://telegram.me/TEAM_CORE_BOT
-
-]],
+☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ ]],
   }
   serialize_to_file(config, './data/config.lua')
   print('saved config into ./data/config.lua')
