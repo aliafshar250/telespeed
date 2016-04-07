@@ -231,6 +231,36 @@ local function unlock_group_spam(msg, data, target)
   end
 end
 
+local function lock_group_badword(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  if not is_owner(msg) then
+    return "🌟فقط مدیرا🌟"
+  end
+  local group_badword_lock = data[tostring(target)]['settings']['lock_badword']
+  if group_badword_lock == 'yes' then
+    return '🌟فحش در گروه از قبل ممنوع بود'
+  else
+    data[tostring(target)]['settings']['lock_badword'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return '🌟فحش در گروه ممنوع شد🌟'
+  end
+end
+
+local function unlock_group_badword(msg, data, target)
+  if not is_momod(msg) then
+    return
+  end
+  local group_badword_lock = data[tostring(target)]['settings']['lock_badword']
+  if group_badword_lock == 'no' then
+    return '🌟فحش از قبل ممنوع نشده است🌟'
+  else
+    data[tostring(target)]['settings']['lock_badword'] = 'no'
+    save_data(_config.moderation.data, data)
+    return '🌟فحش در گروه مجاز شد🌟'
+  end
+end
 local function lock_group_flood(msg, data, target)
   if not is_momod(msg) then
     return
@@ -405,7 +435,7 @@ local function enable_strict_rules(msg, data, target)
   end
   local group_strict_lock = data[tostring(target)]['settings']['strict']
   if group_strict_lock == 'yes' then
-    return '🌟تنظیمات از قب������������ محکم بود🌟'
+    return '🌟تنظیمات از قبل محکم و شدید بود🌟'
   else
     data[tostring(target)]['settings']['strict'] = 'yes'
     save_data(_config.moderation.data, data)
@@ -521,7 +551,7 @@ function show_supergroup_settingsmod(msg, target)
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "تنظیمات سوپر گروه🌟: \n==========\n🌟قفل لینک : "..settings.lock_link.." \n==========\n🌟قفل اتک: "..settings.flood.." \n==========\n🌟حساسیت به اسپم: "..NUM_MSG_MAX.." \n==========\n🌟قفل اسپم: "..settings.lock_spam.." \n==========\n🌟قفل عربی: "..settings.lock_arabic.." \n==========\n🌟قفل ورود "..settings.lock_member.." \n==========\n🌟قفل rtl: "..settings.lock_rtl.." \n==========\n🌟قفل استیکر: "..settings.lock_sticker.." \n==========\n🌟عمومی: "..settings.public.." \n==========\n🌟قفل محکم تنظیمات: "..settings.strict
+  local text = "تنظیمات سوپر گروه🌟: \n==========\n🌟قفل لینک : "..settings.lock_link.." \n==========\n🌟قفل اتک: "..settings.flood.." \n==========\n🌟حساسیت به اسپم: "..NUM_MSG_MAX.." \n==========\n🌟قفل اسپم: "..settings.lock_spam.." \n==========\n🌟قفل عربی: "..settings.lock_arabic.." \n==========\n🌟قفل ورود "..settings.lock_member.." \n==========\n🌟قفل rtl: "..settings.lock_rtl.." \n==========\n🌟قفل استیکر: "..settings.lock_sticker.." \n==========\n🌟عمومی:  "..settings.lock_badword.." \n==========\n🌟قفل فحش: "..settings.public.." \n==========\n🌟قفل محکم تنظیمات: "..settings.strict
   return text
 end
 
@@ -1230,7 +1260,7 @@ local function run(msg, matches)
 			local function callback_link (extra , success, result)
 			local receiver = get_receiver(msg)
 				if success == 0 then
-					send_large_msg(receiver, 'ربات سازنده گروه نیست * ش��ا میتوانید با د��تو�� (ذخیره لینک) لینک خود را ثبت کنید')
+					send_large_msg(receiver, 'ربات سازنده گروه نیست*\nشما میتوناید با استفاده از  ذخیره لینک  لینک خود را در گروه ثبت کنید')
 					data[tostring(msg.to.id)]['settings']['set_link'] = nil
 					save_data(_config.moderation.data, data)
 				else
@@ -1605,7 +1635,7 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked flood ")
 				return lock_group_flood(msg, data, target)
 			end
-			if matches[2] == '��ربی' then
+			if matches[2] == 'عربی' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked arabic ")
 				return lock_group_arabic(msg, data, target)
 			end
@@ -1621,6 +1651,10 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked sticker posting")
 				return lock_group_sticker(msg, data, target)
 			end
+                       if matches[2] == 'فحش' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked badword posting")
+				return lock_group_badword(msg, data, target)
+			end  
 			if matches[2] == 'اکانت' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked contact posting")
 				return lock_group_contacts(msg, data, target)
@@ -1661,6 +1695,10 @@ local function run(msg, matches)
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked sticker posting")
 				return unlock_group_sticker(msg, data, target)
 			end
+                       if matches[2] == 'فحش' then
+				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked badword posting")
+				return unlock_group_badword(msg, data, target)
+			end 
 			if matches[2] == 'اکانت' then
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked contact posting")
 				return unlock_group_contacts(msg, data, target)
