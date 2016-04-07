@@ -170,6 +170,30 @@ local function unlock_group_sticker(msg, data, target)
   end
 end
 
+local function lock_group_badword(msg, data, target)
+
+  local group_badword_lock = data[tostring(target)]['settings']['lock_badword']
+  if group_badword_lock == 'yes' then
+    return 'badwords posting is already locked'
+  else
+    data[tostring(target)]['settings']['lock_badword'] = 'yes'
+    save_data(_config.moderation.data, data)
+    return 'badwords posting has been locked'
+  end
+end
+
+local function unlock_group_badword(msg, data, target)
+
+  local group_badword_lock = data[tostring(target)]['settings']['lock_badword']
+  if group_badwords_lock == 'no' then
+    return 'badwords posting is already unlocked'
+  else
+    data[tostring(target)]['settings']['lock_badwords'] = 'no'
+    save_data(_config.moderation.data, data)
+    return 'badwords posting has been unlocked'
+  end
+end
+
 local function lock_group_contacts(msg, data, target)
   if not is_momod(msg) then
     return
