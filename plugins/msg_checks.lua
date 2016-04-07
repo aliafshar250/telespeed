@@ -23,6 +23,11 @@ if is_chat_msg(msg) or is_super_group(msg) then
 	else
 		lock_rtl = 'no'
 	end
+        if settings.lock_badword then
+		lock_badword = settings.lock_badword
+	else
+		lock_badword = 'no'
+	end
 	if settings.lock_link then
 		lock_link = settings.lock_link
 	else
