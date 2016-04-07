@@ -23,6 +23,7 @@ local function check_member_super(cb_extra, success, result)
           flood = 'no',
 		  lock_spam = 'yes',
 		  lock_sticker = 'no',
+                  lock_badword = 'no',
 		  member = 'no',
 		  public = 'no',
 		  lock_rtl = 'no',
@@ -551,7 +552,7 @@ function show_supergroup_settingsmod(msg, target)
 		end
 	end
   local settings = data[tostring(target)]['settings']
-  local text = "تنظیمات سوپر گروه🌟: \n==========\n🌟قفل لینک : "..settings.lock_link.." \n==========\n🌟قفل اتک: "..settings.flood.." \n==========\n🌟حساسیت به اسپم: "..NUM_MSG_MAX.." \n==========\n🌟قفل اسپم: "..settings.lock_spam.." \n==========\n🌟قفل عربی: "..settings.lock_arabic.." \n==========\n🌟قفل ورود "..settings.lock_member.." \n==========\n🌟قفل rtl: "..settings.lock_rtl.." \n==========\n🌟قفل استیکر: "..settings.lock_sticker.." \n==========\n🌟عمومی:  "..settings.lock_badword.." \n==========\n🌟قفل فحش: "..settings.public.." \n==========\n🌟قفل محکم تنظیمات: "..settings.strict
+  local text = "تنظیمات سوپر گروه🌟: \n==========\n🌟قفل لینک : "..settings.lock_link.." \n==========\n🌟قفل اتک: "..settings.flood.." \n==========\n🌟حساسیت به اسپم: "..NUM_MSG_MAX.." \n==========\n🌟قفل اسپم: "..settings.lock_spam.." \n==========\n🌟قفل عربی: "..settings.lock_arabic.." \n==========\n🌟قفل ورود "..settings.lock_member.." \n==========\n🌟قفل rtl: "..settings.lock_rtl.." \n==========\n🌟قفل استیکر: "..settings.lock_sticker.." \n==========\n🌟عمومی: "..settings.lock_badword.." \n==========\n🌟قفل فحش: "..settings.public.." \n==========\n🌟قفل محکم تنظیمات: "..settings.strict
   return text
 end
 
