@@ -134,19 +134,19 @@ end
 
 local function run(msg, matches)
 local support_id = msg.from.id
- if matches[1]:lower() == 'id' and msg.to.type == "chat" or msg.to.type == "user" then
+ if matches[1]:lower() == 'ایدی' and msg.to.type == "chat" or msg.to.type == "user" then
     if msg.to.type == "user" then
-      return "Bot ID: "..msg.to.id.. "\n\nYour ID: "..msg.from.id
+      return "💀ایدی ربات: "..msg.to.id.. "\n\n☺ایدی شما: "..msg.from.id
     end
     if type(msg.reply_id) ~= "nil" then
       local print_name = user_print_name(msg.from):gsub("‮", "")
 	  local name = print_name:gsub("_", "")
         savelog(msg.to.id, name.." ["..msg.from.id.."] used /id ")
         id = get_message(msg.reply_id,get_message_callback_id, false)
-    elseif matches[1]:lower() == 'id' then
+    elseif matches[1]:lower() == 'ایدی' then
       local name = user_print_name(msg.from)
       savelog(msg.to.id, name.." ["..msg.from.id.."] used /id ")
-      return "Group ID for " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n"..msg.to.id
+      return "✳نام گروه : " ..string.gsub(msg.to.print_name, "_", " ").. ":\n\n♻ایدی گروه : "..msg.to.id.."☺ایدی شما : ".. msg.from.id
     end
   end
   if matches[1]:lower() == 'خروج' and msg.to.type == "chat" then-- /kickme
@@ -208,7 +208,7 @@ local support_id = msg.from.id
   end
 
 
-  if matches[1]:lower() == 'ین بن' then -- /unban
+  if matches[1]:lower() == 'ان بن' then -- /unban
     if type(msg.reply_id)~="nil" and is_momod(msg) then
       local msgr = get_message(msg.reply_id,unban_by_reply, false)
     end
@@ -300,7 +300,7 @@ end
 		resolve_username(username, kick_ban_res, cbres_extra)
       end
   end
-  if matches[1]:lower() == 'ین سوپر' then -- Global unban
+  if matches[1]:lower() == 'ان سوپر' then -- Global unban
     local user_id = matches[2]
     local chat_id = msg.to.id
       if string.match(matches[2], '^%d+$') then
@@ -336,12 +336,12 @@ return {
     "^(اخراج)$",
 	"^(بن)$",
     "^(بن) (.*)$",
-    "^(ین بن) (.*)$",
-    "^(ین سوپر) (.*)$",
-    "^(ین سوپر)$",
+    "^(ان بن) (.*)$",
+    "^(ان سوپر) (.*)$",
+    "^(ان سوپر)$",
     "^(اخراج) (.*)$",
-    "^(ین بن)$",
-    "^([Ii]d)$",
+    "^(ان بن)$",
+    "^(ایدی)$",
     "^!!tgservice (.+)$"
   },
   run = run,
